@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What To Do ?</title>
+    <style>
+        body{
+            background-image: url(./45398.png);
+        .action-container{
+            display:flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .list-container{
+            background-color: #faedcd;
+            width: 300px;
+            display: block;
+            margin: 20px auto;
+            padding: 20px 20px;
+            border-radius: 10px;
+            height: 550px;
+            overflow-y: scroll;
+        }
+        .todo-item{
+            background-color: #ffca3a;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .input{
+            height: 15px;
+            margin-right: 10px ;
+            padding: 5px;
+            border-radius: 25px;
+            border: 1px solid #000;
+            font-size: 20px;
+        }
+        .heading{
+            text-align: center;
+            color: wheat;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="heading">To-Do List</h1>
+    <div class="list-container" id="list-container">
+        <div class="todo-item">Task Item </div>
+
+
+    </div>
+    <div class="action-container">
+        <input type = "text" id="input" class="input">
+    <button onclick="add()">
+        Add
+    </button>
+</div>
+
+    <script>
+        const todolist =[]
+        function add(){
+            const input = document.getElementById("input")
+            todolist.push(input.value)
+
+            input.value=""
+            rendertodolist()
+
+        }
+
+        function rendertodolist(){
+            const listcontainer = document.getElementById("list-container")
+            listcontainer.innerHTML = ""
+            for(const todoitem of todolist)
+    
+            {
+                listcontainer.innerHTML += `<div class="todo-item"> <input type="checkbox"/> ${todoitem} </div>`
+            }
+        }
+
+</script>
+</body>
+</html>
