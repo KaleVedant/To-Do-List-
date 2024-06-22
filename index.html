@@ -7,6 +7,7 @@
     <style>
         body{
             background-image: url(./45398.png);
+        }
         .action-container{
             display:flex;
             justify-content: center;
@@ -58,10 +59,17 @@
 </div>
 
     <script>
-        const todolist =[]
+        let todolist =[]
+
+        const listfromlocalstorage=localStorage.getItem("todolist");
+        if(listfromlocalstorage){
+            todolist=JSON.parse(listfromlocalstorage);
+            rendertodolist();
+        }
         function add(){
             const input = document.getElementById("input")
             todolist.push(input.value)
+            localStorage.setItem("todolist",JSON.stringify(todolist));
 
             input.value=""
             rendertodolist()
